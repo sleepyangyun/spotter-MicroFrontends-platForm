@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 语法规范检测和自动格式化
+echo "———————————————————— 语法规范检测和自动格式化 ————————————————————"
+npx lint-staged || (echo "代码提交失败：存在规范错误，请修复后再次尝试。如果存在疑问请联系 naix.geng@spotterio.com"; exit 1)
+
+# 类型检查
+echo "———————————————————— 类型检查 ————————————————————"
+pnpm check:type || (echo "代码提交失败: 存在类型错误，请修复后再次尝试，如果存在疑问请联系 naix.geng@spotterio.com"; exit 1)
+

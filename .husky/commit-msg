@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+# Commit Message 规范检查
+echo "———————————————————— Commit Message 规范检查 ————————————————————"
+npx --no -- commitlint -g .commitlintrc.js --edit || (echo "代码提交失败: Commit Message 规范错误，请修复后再次尝试，如果存在疑问请联系 naix.geng@spotterio.com"; exit 1)

@@ -1,0 +1,190 @@
+##################### React Pro Boilerplate Configuration Defaults #####################
+#
+# Note: If change any config key or section, you shuold also update the type definition. details see /server/setting/sections/setting.ts.
+#
+#################################### Servers ###############################
+
+[server]
+# Protocol (http, https, h2) # socket not support not
+protocol = "http"
+
+# The ip address to bind to, empty will bind to all interfaces
+http_addr = ""
+
+# The http port to use
+http_port = 4000
+
+# The public facing domain name used to access server from a browser
+domain = "localhost"
+
+# This is a reference value, will be generated as `${protocol}://${domain}:${http_port}/${app_sub_url}`
+# root_url = ""
+
+app_api_url = 'http://api.dev.spotterio.com'
+
+# This is the path url of root_url for <base> href.
+# If define public_url with app_sub_url, the app_sub_url will be override by public_url pathname
+app_sub_url = ""
+
+# The root path of static resource
+static_root_path = "dist/public"
+
+# Enable gzip
+enable_gzip = false
+
+# Https certs & key file
+cert_file = ""
+cert_key = ""
+ca = ""
+
+# HTML document title will be setted
+app_name = "Gmesh"
+# The identity of app
+app_code = "gmesh"
+
+
+#################################### DATABASE ###############################
+[database]
+enable = false
+[database.mysql]
+database= 'gmesh'
+host = 'localhost'
+username = 'root'
+password = '123456'
+
+#################################### Proxy ###############################
+[proxy]
+# enable proxy
+enable = false
+# Determine which requests should be proxied to the target host.
+context = "/"
+# Target host to proxy to
+target = ""
+# Changes the origin of the host header to the target URL
+change_origin = true
+
+#################################### Auth ###############################
+[auth]
+# Login cookie name
+login_cookie_name = "GEMSH_SESSION"
+
+# Specifies the number (in milliseconds) to use when calculating the Expires Set-Cookie attribute
+cookie_max_age = 7_200_000
+
+# Time for session expired
+session_max_age = 86_400_000
+
+# Interval for checking session is expired
+session_check_expiration_interval = 900_000
+
+
+# This is the secret used to sign the session cookie
+cookie_sign_secret = 'gmesh'
+
+# URL for allowed cors origin
+allowed_cors_origin_urls = []
+
+[auth.mysql]
+session_table = 'sessions'
+connection_limit = 10
+
+[auth.oauth2]
+lark_url="https://open.feishu.cn/open-apis/authen/v1/index?app_id=cli_a2b8615b7dfdd00b&redirect_uri=http%3A%2F%2Fapi.dev.spotterio.com%2Fspotter-guard-web%2Fuser%2Ffeishu%2Fcallback&app=gmesh"
+ding_url="https://login.dingtalk.com/oauth2/auth?redirect_uri=http%3A%2F%2Fapi.dev.spotterio.com%2Fspotter-guard-web%2Fuser%2Fdingtalk%2Fcallback&response_type=code&client_id=dingc1u4qzssi1lcjd34&scope=openid&state=dddd&prompt=consent"
+#################################### Logging #############################
+[log]
+# the enabled log transport, do not forget update the config type definiton if you modified this value becasuse is affectted in config structure!!!
+transports = ["console", "desc"]
+
+# Directory where server can store logs
+store_path = "log"
+
+
+# Either "debug", "info", "warn", "error", "fatal", default is "info".see details at:https://github.com/log4js-node/log4js-node
+level = "info"
+
+
+# (temporary not support)  optional settings to set different levels for specific loggers. Ex filters = sqlstore:debug
+# filters = ""
+
+[log.console]
+# Either "debug", "info", "warn", "error", "fatal", default is "info".see details at:https://github.com/log4js-node/log4js-node
+level = "info"
+
+# Either "stdout", "console", "file". default is "stdout".
+appender_type = "console"
+
+# (temporary not support)  log line format, valid options are text, console and json
+# format = "console"
+
+
+[log.desc]
+# Either "debug", "info", "warn", "error", "fatal", default is "info".see details at:https://github.com/log4js-node/log4js-node
+level = "info"
+
+filename = 'desc.log'
+
+# Either "stdout", "console", "file". default is "stdout".
+appender_type = "file"
+
+# (temporary not support)  log line format, valid options are text, console and json
+# format = "text"
+
+# This enables automated log rotate(switch of following options), default is true
+log_rotate = true
+
+# (temporary not support) Max line number of single file, default is 1000000
+# max_lines = 1000000
+
+# Max size shift of single file, default is 28 means 1 << 28, 256MB
+max_size_shift = 28
+
+# Segment log daily, default is true
+daily_rotate = true
+
+# Expired days of log file(delete after max days), default is 7
+max_days = 7
+
+#################################### Open API #############################
+[open_api]
+# Enable mount Swagger UI when application starting.
+enable = false
+
+# The title of Swagger UI
+title = 'Application API Docs'
+
+# The path to mount the Swagger UI
+path = '/open-api'
+
+#################################### Service #############################
+[service]
+# The registries of dependent service
+registries = ['amazon']
+
+[service.amazon]
+# The service url to use.
+service_url = 'https://vendorcentral.amazon.com'
+
+
+#################################### Nacos ################################
+[nacos]
+[nacos.config_client]
+serverAddr = 'nacos.dev.spotter.ink:80'
+i18n_translation_group = 'I18N_TRANSLATION_GROUP'
+vc_session_group = 'VC_SESSION_GROUP'
+# 账号池的列表，新增账号需要手动同步账号的基础信息进入该 pool
+vc_account_pool_data_id = 'vc_account_pool'
+
+[nacos.config_client.bi]
+data_id= "gmesh-bi"
+group="DEFAULT_GROUP"
+
+[bi]
+bi_url='/api/v1/biurl'
+
+[bucket]
+message_bucket_name = "message-test-1303367458"
+image_bucket_name = "ticket-test-1303367458"
+business_image_bucket_name = 'cooperation-test-1303367458'
+performance_bucket_name='performance-test-1303367458'
+

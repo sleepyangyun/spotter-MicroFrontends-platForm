@@ -1,0 +1,566 @@
+body,
+#main-application {
+    /*********************************** ProLayout & Layout ***********************************/
+    .ant-design-pro {
+        .ant-pro-global-header {
+            border-bottom: 1px solid @border-color-base;
+            box-shadow: none;
+        }
+    }
+
+    /*********************************** ProForm & Form ***********************************/
+    .ant-pro-form-login-container {
+        padding: 0;
+
+        .ant-pro-form-login-main {
+            .ant-tabs-nav-list {
+                margin: 0;
+            }
+        }
+    }
+
+    .ant-form {
+        .ant-form-item {
+            &.spotter-form-item-readonly {
+                .ant-form-item-control-input {
+                    .ant-form-item-control-input-content {
+                        padding: 4px 11px;
+                        background: #f7f9fb;
+                    }
+                }
+            }
+        }
+    }
+
+    // tooltip icon 垂重居中对齐
+    // .ant-pro-core-label-tip-icon {
+    //     display: flex;
+    // }
+
+    /*********************************** Button ***********************************/
+    .ant-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        .ant-btn-loading-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .anticon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        &-link {
+            padding: 0;
+        }
+    }
+
+    a.ant-btn {
+        padding-top: 4px !important;
+
+        &-link {
+            padding: 0 !important;
+        }
+    }
+
+    /*********************************** Select ***********************************/
+    .ant-select {
+        &.ant-select-multiple {
+            .ant-select-selection-item {
+                background: #fff;
+            }
+        }
+    }
+
+    /*********************************** Card ***********************************/
+    .ant-card {
+        .ant-card-body {
+            padding: 24px;
+        }
+        // 无边框风格
+        &.ant-card-bordered {
+            border: none;
+        }
+    }
+
+    /*********************************** DatePicker ***********************************/
+    .ant-picker {
+        width: 100%;
+    }
+
+    .ant-table {
+        .ant-form-item-children-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ant-table-expanded-row {
+            .ant-table-expanded-row-fixed {
+                // background-color: #fff;
+                .ant-table {
+                    margin-inline: 0;
+                }
+            }
+        }
+
+        td.ant-table-cell.disable-drawer-trigger {
+            padding: 0;
+
+            .disabled-drawer-trigger-table-cell-wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-width: 100%;
+                min-height: 100%;
+                padding: 8px;
+
+                > * {
+                    z-index: 2;
+                }
+
+                &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    width: 100%;
+                    height: 100%;
+                    content: '';
+                }
+            }
+        }
+    }
+
+    .ant-message {
+        .ant-message-custom-content {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .ant-checkbox {
+        .ant-checkbox-inner {
+            border-color: hsv(0, 0, 85%);
+        }
+    }
+
+    .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner {
+        background-color: #adc6ff;
+    }
+
+    .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+        border-color: #fff;
+    }
+
+    .ant-checkbox-indeterminate.ant-checkbox-disabled .ant-checkbox-inner::after {
+        background-color: #adc6ff;
+        border-color: #adc6ff;
+    }
+
+    .ant-image-preview-root {
+        img {
+            display: inline;
+        }
+    }
+
+    .ant-breadcrumb {
+        display: flex;
+
+        .ant-breadcrumb-link {
+            display: inline-flex;
+            align-items: center;
+
+            > a {
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+    }
+
+    .ant-pro-core-label-tip-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /******************************* Table.Summary.Rows.Cell *******************************/
+    .ant-table-summary td {
+        background-color: #fafafa;
+    }
+
+    /****************************** Transfer *********************************/
+    .ant-transfer .ant-transfer-list {
+        border: 1px solid #e5e6eb;
+    }
+
+    /****************************** Input *********************************/
+    .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled) {
+        .ant-input-suffix {
+            .ant-input-clear-icon {
+                opacity: 0;
+                transition: opacity 0.2s;
+            }
+        }
+
+        &:hover {
+            .ant-input-suffix {
+                .ant-input-clear-icon {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    /****************************** ProTable *********************************/
+    .ant-pro .ant-pro-query-filter-row {
+        row-gap: 12px;
+    }
+
+    .ant-pro .ant-pro-query-filter {
+        padding: 12px 24px 0;
+    }
+
+    .ant-pro-table {
+        .ant-pro-table-list-toolbar {
+            &-container {
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
+
+        .ant-pro-table-search-query-filter {
+            margin-bottom: 16px;
+            padding-top: 0;
+
+            .ant-form-item {
+                margin-top: 12px;
+                margin-bottom: 0;
+            }
+        }
+
+        .ant-spin-container {
+            .ant-table-pagination {
+                margin: 10px 0 0;
+                padding: 12px 0;
+                background: #fff;
+                //box-shadow: 0 -6px 18px 0 rgb(0 35 90 / 8%), 0 0 0px 0 rgb(0 35 90 / 6%);
+                //box-shadow: 0 -8px 18px 0 rgb(0 35 90 / 8%), 0 0 0px 0 #fff;
+                //box-shadow: 0 -10px 8px -8px #00000026;
+
+                &.ant-pagination-mini {
+                    display: flex;
+                    align-items: center;
+                    overflow: visible;
+
+                    .ant-pagination-item-active {
+                        color: var(--primary-color);
+                        background: #f0f5ff;
+                        border-color: #f0f5ff;
+                    }
+
+                    .ant-pagination-item-container {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        height: 32px;
+
+                        > span {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            min-width: 32px;
+                        }
+                    }
+
+                    .ant-pagination-item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 32px;
+                        height: 32px;
+
+                        &:hover {
+                            background-color: #f7f8fa;
+                        }
+                    }
+
+                    .ant-pagination-next,
+                    .ant-pagination-prev,
+                    .ant-pagination-jump-next,
+                    .ant-pagination-jump-prev {
+                        min-width: 32px;
+                        height: 32px;
+
+                        .ant-pagination-item-link {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ant-table-sticky-scroll {
+        display: none !important;
+    }
+
+    .active-table-row {
+        background-color: #fffbe6;
+    }
+
+    .active-table-row .ant-table-cell-row-hover {
+        background-color: #fffbe6 !important;
+    }
+
+    // 不展示时间选择框今日样式
+    .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+        border: none !important;
+    }
+
+    .break-word-form .ant-form-item-control-input-content {
+        word-break: break-all !important;
+    }
+
+    .custom-add-on-before {
+        .ant-input-group-addon {
+            color: rgb(0 0 0 / 85%) !important;
+            background-color: #f2f3f5;
+            border-color: #f2f3f5 !important;
+            border-right: 1px solid #e1e2e7 !important;
+        }
+
+        .ant-input-number-group-addon {
+            background-color: #f2f3f5;
+            border: 1px solid #e5e6eb;
+            border-right-width: 0;
+        }
+    }
+
+    .no-gap {
+        .ant-pro-table-list-toolbar-container {
+            .ant-space {
+                gap: 0 !important;
+            }
+        }
+    }
+    /****************************** Space *********************************/
+
+    .space-item-flex {
+        .ant-space-item {
+            display: flex;
+        }
+    }
+
+    .list-header-align-left {
+        .ant-list-header {
+            padding: 8px 16px;
+        }
+    }
+    /****************************** Descriptions *********************************/
+
+    .descriptions-align-center {
+        .ant-descriptions-item-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    .ant-steps-item-active {
+        .ant-steps-item-title {
+            font-weight: bold;
+        }
+    }
+}
+/****************************** Empty *********************************/
+
+.ant-empty {
+    .ant-empty-image {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.sale-management-objective-expandable {
+    .ant-table-expanded-row-fixed {
+        width: auto !important;
+        margin: 0 !important;
+
+        .no-cell-bg {
+            .ant-table-cell {
+                background: #fbfbfb !important;
+            }
+        }
+    }
+}
+
+.ant-picker-panel-container {
+    .ant-picker-cell-disabled {
+        cursor: not-allowed;
+    }
+}
+
+/*********************************** Image ***********************************/
+.ant-image {
+    // 缩略图
+    .ant-image-img {
+        object-fit: contain;
+    }
+}
+
+.custom-tabs-with-badge {
+    color: inherit;
+    font-size: inherit;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr.ant-table-row-selected {
+    &:hover {
+        td {
+            background-color: #fff;
+        }
+    }
+
+    td {
+        background-color: #fff;
+    }
+
+    .ant-table-cell-fix-left-last,
+    .ant-table-cell-row-hover {
+        background-color: #fff;
+    }
+}
+
+textarea.ant-input:focus {
+    background-color: #fff;
+}
+
+.ant-input-affix-wrapper-focused,
+.ant-select-focused,
+.ant-picker-focused,
+.ant-input-number-focused,
+.ant-input-focused {
+    background-color: #fff;
+
+    .ant-input {
+        background-color: #fff;
+    }
+
+    &.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        background-color: #fff;
+    }
+}
+
+.ant-table-wrapper .ant-table-thead > tr > th,
+.ant-table-wrapper .ant-table-thead > tr > td {
+    font-weight: 500;
+}
+
+// TODO: 临时代码，覆盖Login Form高层级style样式
+.ant-pro-table-list-toolbar-setting-item .anticon {
+    font-size: 16px;
+}
+
+.ant-pro-form-login-main .ant-input-prefix {
+    font-size: 16px;
+}
+
+.ant-card {
+    box-shadow: none !important;
+}
+
+// 强制覆盖message的圆角，但是我看其实已经可以通过token去覆盖了，由于没有生效故在此写个样式来覆盖
+.ant-message-notice .ant-message-notice-content {
+    border-radius: 2px;
+}
+
+// TODO: 很奇怪的样式问题，待检查是什么引起的bug
+.ant-btn-link {
+    &.ant-btn-disabled {
+        background-color: unset;
+        border-color: transparent;
+
+        &:hover {
+            background-color: unset;
+            border-color: transparent;
+        }
+    }
+}
+
+// table toolbar left 宽度固定的问题
+// https://devops.aliyun.com/projex/project/3898931848786a8f33f2b030f5/bug#viewIdentifier=ff719b0d2a7b13f6ba4b193a&openWorkitemIdentifier=12a307481b746fe12961f84493
+.ant-pro-table-list-toolbar-left {
+    flex: unset;
+}
+
+//  列表数据滑到最底部后，分页选择栏的空白会增多
+// https://devops.aliyun.com/projex/project/3898931848786a8f33f2b030f5/bug#viewIdentifier=1dedc5afd44979211cad516f&openWorkitemIdentifier=d23d469bd9e9dc0a5475636eb7
+.ant-pro-table {
+    > .ant-pro-card {
+        > .ant-pro-card-body {
+            padding: 0;
+        }
+    }
+}
+
+// modal的header改成原来的样式
+// https://devops.aliyun.com/projex/project/3898931848786a8f33f2b030f5/bug#viewIdentifier=1dedc5afd44979211cad516f&openWorkitemIdentifier=de3875942ad4ef126f1e26690f
+
+.ant-modal {
+    .ant-modal-header {
+        margin-bottom: 16px;
+
+        .ant-modal-title {
+            font-weight: 600;
+        }
+    }
+}
+
+// 新版pro-table的footer的lineHeight变成64了，导致表格内容会被遮挡，改回44
+// https://devops.aliyun.com/projex/project/3898931848786a8f33f2b030f5/bug#viewIdentifier=1dedc5afd44979211cad516f&openWorkitemIdentifier=e290fa2d44fd12a40068d36a7d
+.ant-pro-footer-bar {
+    line-height: 44px;
+}
+
+// 嵌套表格 子表格的样式修改
+// https://devops.aliyun.com/projex/project/3898931848786a8f33f2b030f5/bug#viewIdentifier=1dedc5afd44979211cad516f&openWorkitemIdentifier=753571b07030d0776df46043a4
+.ant-table-wrapper tr.ant-table-expanded-row {
+    td,
+    &:hover > td {
+        background-color: #fff;
+    }
+}
+// 同上 不过是去掉margin
+.ant-table-wrapper
+    .ant-table.ant-table-middle
+    .ant-table-tbody
+    .ant-table-wrapper:only-child
+    .ant-table {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+// 新版procomponent的filter筛选自带了row-gap：24px，导致筛选的样式有问题，改回0
+// https://devops.aliyun.com/projex/project/3898931848786a8f33f2b030f5/bug#viewIdentifier=1dedc5afd44979211cad516f&openWorkitemIdentifier=a9368fe12578a347b2135aac06
+.ant-pro-query-filter-row {
+    row-gap: 0;
+}
+// 同上，去掉padding top and bottom
+.ant-pro-query-filter.ant-pro-query-filter {
+    padding: 0;
+}
+
+// https://devops.aliyun.com/projex/project/19ce88337ecb468f687777856f/bug#viewIdentifier=ff719b0d2a7b13f6ba4b193a&openWorkitemIdentifier=87380d6b24a1a88f8d3b37d592
+// 新版radio 默认 align-self: center，导致radio和label不在同一行，改回flex-start
+.ant-radio {
+    align-self: flex-start !important;
+    margin-top: 3px !important;
+}

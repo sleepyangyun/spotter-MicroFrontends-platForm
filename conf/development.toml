@@ -1,0 +1,35 @@
+[server]
+domain = "0.0.0.0"
+app_api_url = 'http://api.dev.spotterio.com'
+enable_gzip = true
+
+#################################### DATABASE ###############################
+[database]
+enable = false
+[database.mysql]
+database= 'gmesh'
+host = 'localhost'
+username = 'root'
+password = '123456'
+
+#################################### Auth ###############################
+[auth]
+# URL for allowed cors origin
+allowed_cors_origin_urls = ['http://api.dev.spotterio.com/auth']
+
+[auth.oauth2]
+lark_url="https://open.feishu.cn/open-apis/authen/v1/index?app_id=cli_a2b8615b7dfdd00b&redirect_uri=http%3A%2F%2Fapi-test.spotterio.com%2Fspotter-guard-web%2Fuser%2Ffeishu%2Fcallback&app=gmesh"
+ding_url="https://login.dingtalk.com/oauth2/auth?redirect_uri=http%3A%2F%2Fapi.dev.spotterio.com%2Fspotter-guard-web%2Fuser%2Fdingtalk%2Fcallback&response_type=code&client_id=dingc1u4qzssi1lcjd34&scope=openid&state=dddd&prompt=consent"
+
+#################################### Nacos ################################
+[nacos]
+[nacos.config_client]
+serverAddr = 'nacos.dev.spotter.ink:80'
+
+
+[bucket]
+message_bucket_name = "message-test-1303367458"
+image_bucket_name = "ticket-test-1303367458"
+business_image_bucket_name = 'cooperation-test-1303367458'
+performance_bucket_name='performance-test-1303367458'
+

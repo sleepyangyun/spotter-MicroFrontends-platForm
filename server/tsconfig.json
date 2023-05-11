@@ -1,0 +1,15 @@
+{
+    "extends": "../tsconfig.base.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "incremental": true,
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */,
+        "target": "es2019",
+        "sourceMap": true,
+        "outDir": "../dist",
+        "lib": ["ESNext"]
+    }
+}

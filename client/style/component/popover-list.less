@@ -1,0 +1,27 @@
+.popover-list {
+    display: inline-block;
+    cursor: pointer;
+
+    .popover-list-text {
+        &:hover {
+            color: var(--primary-color);
+
+            .tab-num {
+                color: var(--primary-color);
+            }
+        }
+
+        .tab-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 4px;
+            padding: 0 8px;
+            color: rgb(0 0 0 / 45%);
+            font-size: 12px;
+            vertical-align: text-bottom;
+            background: #f0f5ff;
+            border-radius: 100px;
+        }
+    }
+}

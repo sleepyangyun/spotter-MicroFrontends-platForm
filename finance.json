@@ -1,0 +1,955 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "spotter-fiannce-web",
+        "description": "spotter-fiannce-web",
+        "contact": {
+            "name": "key.chan",
+            "email": "key.chen@spotterio.com"
+        },
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "swagger",
+            "description": "swagger文档服务"
+        },
+        {
+            "name": "amazon_return",
+            "description": "应付货款结算退货信息"
+        },
+        {
+            "name": "amazon_shortage_missed",
+            "description": "应付货款结算丢缺货"
+        },
+        {
+            "name": "account_payment",
+            "description": "应付货款结算服务"
+        }
+    ],
+    "paths": {
+        "/swagger/doc": {
+            "get": {
+                "tags": ["swagger"],
+                "summary": "获取服务接口文档",
+                "description": "网关获取当前服务api文档同意展示",
+                "operationId": "swaggerdoc_doc",
+                "responses": {
+                    "default": {
+                        "description": "default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/amazon/return/details": {
+            "post": {
+                "tags": ["amazon_return"],
+                "summary": "查询退货详情s",
+                "description": "查询退货详情s",
+                "operationId": "amazonreturndetails_details",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ApReturnDetailsSearchRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseResultListApReturnDetailVO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/amazon/shortage/missed/details": {
+            "post": {
+                "tags": ["amazon_shortage_missed"],
+                "summary": "查询丢缺货详情s",
+                "description": "查询丢缺货详情s",
+                "operationId": "amazonshortagemisseddetails_details",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ApShortageMissedDetailsSearchRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseResultListApShortageMissedDetailVO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/payment/detail": {
+            "get": {
+                "tags": ["account_payment"],
+                "summary": "根据款项id获取结算详情",
+                "description": "根据款项id获取结算详情",
+                "operationId": "accountpaymentdetail_detail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "应付货款概览主键",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseResultApSettlementRecordWithDetailVO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/payment/export/excel": {
+            "get": {
+                "tags": ["account_payment"],
+                "summary": "导出结算记录（excel）",
+                "description": "导出结算记录（excel）",
+                "operationId": "accountpaymentexportexcel_exportExcel",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "应付货款结算记录主键id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseResultString"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/payment/settlement": {
+            "post": {
+                "tags": ["account_payment"],
+                "summary": "应付采购货款结算",
+                "description": "应付采购货款结算",
+                "operationId": "accountpaymentsettlement_settlement",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ApSettlementGenerateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseResultBoolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/payment/summary": {
+            "post": {
+                "tags": ["account_payment"],
+                "summary": "获取结算信息概览",
+                "description": "获取结算信息概览",
+                "operationId": "accountpaymentsummary_summary",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ApSettlementSummarySearchRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseResultPageVOApSettlementRecordVO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/payment/undo": {
+            "get": {
+                "tags": ["account_payment"],
+                "summary": "指定id撤销结算",
+                "description": "指定id撤销结算",
+                "operationId": "accountpaymentundo_undo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "应付货款结算主键",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseResultBoolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ApReturnDetailVO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "主键id"
+                    },
+                    "amzReturnId": {
+                        "type": "string",
+                        "description": "亚马逊退货id"
+                    },
+                    "settlementStatus": {
+                        "type": "string",
+                        "description": "结算状态，settled：已结算，no_settlement：未结算，initialization：初始化"
+                    },
+                    "paymentNumber": {
+                        "type": "string",
+                        "description": "亚马逊支付编号"
+                    },
+                    "invoiceNumber": {
+                        "type": "string",
+                        "description": "发票编号"
+                    },
+                    "invoiceType": {
+                        "type": "string",
+                        "description": "发票类型，退货扣款（return）,退货补款（return_reversal）"
+                    },
+                    "invoiceCurrency": {
+                        "type": "string",
+                        "description": "发票币种"
+                    },
+                    "invoiceDate": {
+                        "type": "string",
+                        "description": "发票时间，mm/dd/yyyy"
+                    },
+                    "returnCode": {
+                        "type": "string",
+                        "description": "退货编号"
+                    },
+                    "returnDate": {
+                        "type": "string",
+                        "description": "退货日期，mm/dd/yyyy"
+                    },
+                    "returnReason": {
+                        "type": "string",
+                        "description": "退货原因，来自亚马逊"
+                    },
+                    "amzPoNo": {
+                        "type": "string",
+                        "description": "亚马逊采购单号"
+                    },
+                    "asin": {
+                        "type": "string",
+                        "description": "亚马逊listing唯一编码"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "退货数量",
+                        "format": "int32"
+                    },
+                    "unitCost": {
+                        "type": "number",
+                        "description": "成本单价，币种与发票币种一致"
+                    },
+                    "amount": {
+                        "type": "number",
+                        "description": "退货总价，币种与发票币种一致"
+                    },
+                    "vendorCode": {
+                        "type": "string",
+                        "description": "VC账号，亚马逊真实使用"
+                    },
+                    "companyCode": {
+                        "type": "string",
+                        "description": "公司code"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "公司名称，冗余字段，方便查询"
+                    },
+                    "companyId": {
+                        "type": "integer",
+                        "description": "公司id",
+                        "format": "int64"
+                    },
+                    "spotterPoNo": {
+                        "type": "string",
+                        "description": "SPT订单号"
+                    },
+                    "shipmentAmzCode": {
+                        "type": "string",
+                        "description": "亚马逊VCPO物流单号"
+                    },
+                    "ssku": {
+                        "type": "string",
+                        "description": "spotter商务上报产品唯一编码"
+                    },
+                    "spotterPurchasingCurrency": {
+                        "type": "string",
+                        "description": "采购价币种，默认USD，未使用后续迭代"
+                    },
+                    "spotterPurchasingPrice": {
+                        "type": "number",
+                        "description": "spotter采购价，币种现在未拆分，所以默认与发票币种一致"
+                    },
+                    "shipWarehouseCode": {
+                        "type": "string",
+                        "description": "发货仓编号"
+                    },
+                    "shipWarehouseName": {
+                        "type": "string",
+                        "description": "发货仓名称"
+                    },
+                    "shipWarehouseEnName": {
+                        "type": "string",
+                        "description": "发货仓名称(英文)"
+                    },
+                    "shipWarehouseAddress": {
+                        "type": "string",
+                        "description": "发货仓地址"
+                    },
+                    "shipWarehouseType": {
+                        "type": "integer",
+                        "description": "发货仓类型，spotter仓库类型(1自发仓 2云仓)",
+                        "format": "int32"
+                    },
+                    "apSettlementCode": {
+                        "type": "string",
+                        "description": "所属应付结算编号"
+                    },
+                    "apEstimatedSettlementMonth": {
+                        "type": "string",
+                        "description": "所属应付结算款项月份，yyyy-mm"
+                    },
+                    "paymentStatus": {
+                        "type": "string",
+                        "description": "支付状态，successful：已支付，non_payment：未支付"
+                    },
+                    "settlementTimeMs": {
+                        "type": "string",
+                        "description": "实际付款时间，毫秒"
+                    },
+                    "settlementVouchersUrls": {
+                        "type": "string",
+                        "description": "结算凭证，list url "
+                    },
+                    "alreadyToAddMonthStatements": {
+                        "type": "string",
+                        "description": "是否加入月度对账单，0：否，1：是"
+                    }
+                },
+                "description": "应付采购货款退款明细"
+            },
+            "ResponseResultListApReturnDetailVO": {
+                "required": ["code", "msg"],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "description": "请求结果码",
+                        "format": "int32",
+                        "example": 200
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "错误消息",
+                        "example": "成功"
+                    },
+                    "data": {
+                        "type": "array",
+                        "description": "请求结果数据",
+                        "items": {
+                            "$ref": "#/components/schemas/ApReturnDetailVO"
+                        }
+                    }
+                }
+            },
+            "ApReturnDetailsSearchRequest": {
+                "type": "object",
+                "properties": {
+                    "companyId": {
+                        "type": "integer",
+                        "description": "公司id",
+                        "format": "int64",
+                        "example": 42
+                    },
+                    "leftTimeMs": {
+                        "type": "integer",
+                        "description": "款项时间，左区间，毫秒时间戳",
+                        "format": "int64",
+                        "example": 1661928484609
+                    },
+                    "rightTimeMs": {
+                        "type": "integer",
+                        "description": "款项时间，右区间，毫秒时间戳",
+                        "format": "int64",
+                        "example": 1661928484609
+                    },
+                    "settlementCode": {
+                        "type": "string",
+                        "description": "所属应付款项编号，SPCS + 费用类型 +  款项时间 + 供应商编码",
+                        "example": "SPCS********"
+                    }
+                },
+                "description": "退货详情列表查询"
+            },
+            "ApShortageMissedDetailVO": {
+                "type": "object",
+                "properties": {
+                    "settlementStatus": {
+                        "type": "string",
+                        "description": "结算状态，settled：已结算，no_settlement：未结算，initialization：初始化"
+                    },
+                    "paymentNumber": {
+                        "type": "string",
+                        "description": "亚马逊支付编号"
+                    },
+                    "invoiceNumber": {
+                        "type": "string",
+                        "description": "发票编号"
+                    },
+                    "invoiceType": {
+                        "type": "string",
+                        "description": "发票类型，缺货扣款(shortage)、丢货扣款(missed)、丢/缺货补款(shortage_claim_reversal)"
+                    },
+                    "invoiceCurrency": {
+                        "type": "string",
+                        "description": "发票币种"
+                    },
+                    "invoiceDate": {
+                        "type": "string",
+                        "description": "发票时间，dd/mm/yyyy"
+                    },
+                    "amzPoNo": {
+                        "type": "string",
+                        "description": "亚马逊采购单号"
+                    },
+                    "asin": {
+                        "type": "string",
+                        "description": "亚马逊listing唯一编码"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "产品名称，取invoice details中的title"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "数量, 缺货扣款：取缺货明细表中的类型为“缺货”的数量；丢货扣款：取缺货明细表中的类型为“丢货”的数量；丢/缺货补款：取缺货明细表中的类型为“丢/缺货补款”的数量",
+                        "format": "int32"
+                    },
+                    "unitCost": {
+                        "type": "number",
+                        "description": "单价，币种与发票币种一致，我们在亚马逊的成本取invoice details中的Unit Cost"
+                    },
+                    "amount": {
+                        "type": "number",
+                        "description": "缺货总价，币种与发票币种一致"
+                    },
+                    "vendorCode": {
+                        "type": "string",
+                        "description": "VC账号，亚马逊真实使用"
+                    },
+                    "companyCode": {
+                        "type": "string",
+                        "description": "公司code"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "公司名称，冗余字段，方便查询"
+                    },
+                    "companyId": {
+                        "type": "integer",
+                        "description": "公司id",
+                        "format": "int64"
+                    },
+                    "spotterPoNo": {
+                        "type": "string",
+                        "description": "SPT订单号"
+                    },
+                    "shipmentAmzCode": {
+                        "type": "string",
+                        "description": "亚马逊VCPO物流单号"
+                    },
+                    "ssku": {
+                        "type": "string",
+                        "description": "spotter商务上报产品唯一编码"
+                    },
+                    "spotterPurchasingCurrency": {
+                        "type": "string",
+                        "description": "采购价币种，默认USD，未使用后续迭代"
+                    },
+                    "spotterPurchasingPrice": {
+                        "type": "number",
+                        "description": "spotter采购价，币种现在未拆分，所以默认与发票币种一致"
+                    },
+                    "shipWarehouseCode": {
+                        "type": "string",
+                        "description": "发货仓编号"
+                    },
+                    "shipWarehouseName": {
+                        "type": "string",
+                        "description": "发货仓名称"
+                    },
+                    "shipWarehouseEnName": {
+                        "type": "string",
+                        "description": "发货仓名称(英文)"
+                    },
+                    "shipWarehouseAddress": {
+                        "type": "string",
+                        "description": "发货仓地址"
+                    },
+                    "shipWarehouseType": {
+                        "type": "integer",
+                        "description": "发货仓类型，spotter仓库类型(1自发仓 2云仓)",
+                        "format": "int32"
+                    },
+                    "apSettlementCode": {
+                        "type": "string",
+                        "description": "所属应付结算编号"
+                    },
+                    "apEstimatedSettlementMonth": {
+                        "type": "string",
+                        "description": "所属应付结算款项月份，yyyy-mm"
+                    },
+                    "paymentStatus": {
+                        "type": "string",
+                        "description": "支付状态，successful：已支付，non_payment：未支付"
+                    },
+                    "settlementTimeMs": {
+                        "type": "string",
+                        "description": "实际付款时间，毫秒"
+                    },
+                    "settlementVouchersUrls": {
+                        "type": "string",
+                        "description": "结算凭证，list url"
+                    }
+                },
+                "description": "丢缺货详情"
+            },
+            "ResponseResultListApShortageMissedDetailVO": {
+                "required": ["code", "msg"],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "description": "请求结果码",
+                        "format": "int32",
+                        "example": 200
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "错误消息",
+                        "example": "成功"
+                    },
+                    "data": {
+                        "type": "array",
+                        "description": "请求结果数据",
+                        "items": {
+                            "$ref": "#/components/schemas/ApShortageMissedDetailVO"
+                        }
+                    }
+                }
+            },
+            "ApShortageMissedDetailsSearchRequest": {
+                "type": "object",
+                "properties": {
+                    "companyId": {
+                        "type": "integer",
+                        "description": "公司id",
+                        "format": "int64",
+                        "example": 42
+                    },
+                    "leftTimeMs": {
+                        "type": "integer",
+                        "description": "款项时间，左区间，毫秒时间戳",
+                        "format": "int64",
+                        "example": 1661928484609
+                    },
+                    "rightTimeMs": {
+                        "type": "integer",
+                        "description": "款项时间，右区间，毫秒时间戳",
+                        "format": "int64",
+                        "example": 1661928484609
+                    },
+                    "settlementCode": {
+                        "type": "string",
+                        "description": "所属应付款项编号，SPCS + 费用类型 +  款项时间 + 供应商编码",
+                        "example": "SPCS********"
+                    }
+                },
+                "description": "丢缺货详情列表查询"
+            },
+            "ApSettlementRecordVO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "主键id",
+                        "format": "int64"
+                    },
+                    "companyCode": {
+                        "type": "string",
+                        "description": "公司code"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "公司名称"
+                    },
+                    "companyId": {
+                        "type": "integer",
+                        "description": "company_id",
+                        "format": "int64"
+                    },
+                    "settlementCode": {
+                        "type": "string",
+                        "description": "应付结算编号，SPCS + 费用类型 +  款项时间 + 供应商编码 "
+                    },
+                    "estimatedSettlementMonth": {
+                        "type": "string",
+                        "description": "所属应付结算款项月份，yyyy-mm"
+                    },
+                    "settlementCurrency": {
+                        "type": "string",
+                        "description": "结算币种"
+                    },
+                    "settlementAmount": {
+                        "type": "number",
+                        "description": "结算金额"
+                    },
+                    "settlementCreateDay": {
+                        "type": "string",
+                        "description": "结算创建时间，yyyy-mm-dd"
+                    },
+                    "settlementCreateUserId": {
+                        "type": "string",
+                        "description": "结算创建人id"
+                    },
+                    "settlementCreateUserName": {
+                        "type": "string",
+                        "description": "结算创建人姓名"
+                    },
+                    "settlementTimeMs": {
+                        "type": "string",
+                        "description": "实际付款时间，毫秒"
+                    }
+                },
+                "description": "应付结算概览"
+            },
+            "ApSettlementRecordWithDetailVO": {
+                "type": "object",
+                "properties": {
+                    "record": {
+                        "$ref": "#/components/schemas/ApSettlementRecordVO"
+                    },
+                    "returnDetails": {
+                        "type": "array",
+                        "description": "结算退货明细",
+                        "items": {
+                            "$ref": "#/components/schemas/ApReturnDetailVO"
+                        }
+                    },
+                    "shortageMissedDetails": {
+                        "type": "array",
+                        "description": "结算丢缺货货明细",
+                        "items": {
+                            "$ref": "#/components/schemas/ApShortageMissedDetailVO"
+                        }
+                    }
+                },
+                "description": "结算记录（含明细）"
+            },
+            "ResponseResultApSettlementRecordWithDetailVO": {
+                "required": ["code", "msg"],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "description": "请求结果码",
+                        "format": "int32",
+                        "example": 200
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "错误消息",
+                        "example": "成功"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/ApSettlementRecordWithDetailVO"
+                    }
+                }
+            },
+            "ResponseResultString": {
+                "required": ["code", "msg"],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "description": "请求结果码",
+                        "format": "int32",
+                        "example": 200
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "错误消息",
+                        "example": "成功"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "请求结果数据"
+                    }
+                }
+            },
+            "ResponseResultBoolean": {
+                "required": ["code", "msg"],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "description": "请求结果码",
+                        "format": "int32",
+                        "example": 200
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "错误消息",
+                        "example": "成功"
+                    },
+                    "data": {
+                        "type": "boolean",
+                        "description": "请求结果数据"
+                    }
+                }
+            },
+            "ApSettlementGenerateRequest": {
+                "type": "object",
+                "properties": {
+                    "estimatedSettlementMonth": {
+                        "type": "string",
+                        "description": "款项所属月份,yyyy-mm",
+                        "example": "2022-12"
+                    },
+                    "returnDetailIds": {
+                        "type": "array",
+                        "description": "结算人员选择的退货ids",
+                        "example": 1,
+                        "items": {
+                            "type": "integer",
+                            "description": "结算人员选择的退货ids",
+                            "format": "int64",
+                            "example": 1
+                        }
+                    },
+                    "companyId": {
+                        "type": "integer",
+                        "description": "公司id",
+                        "format": "int64",
+                        "example": 42
+                    },
+                    "leftDate": {
+                        "type": "string",
+                        "description": "款项时间，左区间，yyyy-mm-dd",
+                        "example": "2022-04-01"
+                    },
+                    "rightDate": {
+                        "type": "string",
+                        "description": "款项时间，右区间，yyyy-mm-dd",
+                        "example": "2022-05-01"
+                    }
+                },
+                "description": "应付结算生成请求 | 预览"
+            },
+            "PageVOApSettlementRecordVO": {
+                "required": [
+                    "currentPage",
+                    "isMore",
+                    "pageSize",
+                    "startIndex",
+                    "totalNum",
+                    "totalPage"
+                ],
+                "type": "object",
+                "properties": {
+                    "currentPage": {
+                        "type": "integer",
+                        "description": "当前页",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "pageSize": {
+                        "type": "integer",
+                        "description": "每页显示的总条数",
+                        "format": "int64",
+                        "example": 20
+                    },
+                    "totalNum": {
+                        "type": "integer",
+                        "description": "总条数",
+                        "format": "int64",
+                        "example": 50
+                    },
+                    "isMore": {
+                        "type": "boolean",
+                        "description": "是否有下一页,true=有，false=没有",
+                        "example": true
+                    },
+                    "totalPage": {
+                        "type": "integer",
+                        "description": "总页数",
+                        "format": "int64",
+                        "example": 20
+                    },
+                    "startIndex": {
+                        "type": "integer",
+                        "description": "开始索引",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "data": {
+                        "type": "array",
+                        "description": "结果列表",
+                        "items": {
+                            "$ref": "#/components/schemas/ApSettlementRecordVO"
+                        }
+                    }
+                },
+                "description": "请求结果数据"
+            },
+            "ResponseResultPageVOApSettlementRecordVO": {
+                "required": ["code", "msg"],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "description": "请求结果码",
+                        "format": "int32",
+                        "example": 200
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "错误消息",
+                        "example": "成功"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/PageVOApSettlementRecordVO"
+                    }
+                }
+            },
+            "ApSettlementSummarySearchRequest": {
+                "required": ["currentPage", "pageSize"],
+                "type": "object",
+                "properties": {
+                    "currentPage": {
+                        "minimum": 1,
+                        "type": "integer",
+                        "description": "当前页数",
+                        "format": "int64"
+                    },
+                    "pageSize": {
+                        "minimum": 1,
+                        "type": "integer",
+                        "description": "展示条数",
+                        "format": "int64"
+                    },
+                    "companyId": {
+                        "type": "integer",
+                        "description": "公司id",
+                        "format": "int64",
+                        "example": 42
+                    },
+                    "leftTimeMs": {
+                        "type": "integer",
+                        "description": "款项时间，左区间，毫秒时间戳",
+                        "format": "int64",
+                        "example": 1661928484609
+                    },
+                    "rightTimeMs": {
+                        "type": "integer",
+                        "description": "款项时间，右区间，毫秒时间戳",
+                        "format": "int64",
+                        "example": 1661928484609
+                    }
+                },
+                "description": "结算概览列表查询请求"
+            }
+        }
+    }
+}

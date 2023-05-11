@@ -1,0 +1,54 @@
+.spotter-home-page {
+    .spotter-home-bg-logo {
+        top: -640px;
+    }
+
+    .spotter-home-page-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 140px auto 0;
+
+        .spotter-home-page-content-slogan {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 618px;
+            margin: 0 auto;
+        }
+
+        .spotter-home-intro-img {
+            margin-top: 120px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .spotter-home-page-content {
+            display: flex;
+            flex-wrap: nowrap;
+
+            .spotter-home-intro-img {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    }
+
+    @media (min-height: 1000px) {
+        .spotter-home-bg-logo {
+            top: -540px;
+        }
+    }
+
+    @media (min-height: 1400px) {
+        .spotter-home-bg-logo {
+            top: -440px;
+        }
+    }
+
+    @media (min-height: 1700px) {
+        .spotter-home-bg-logo {
+            top: -240px;
+        }
+    }
+}

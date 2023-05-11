@@ -1,0 +1,23 @@
+@keyframes left-to-right {
+    0% {
+        left: calc(-100% - 80px);
+    }
+
+    100% {
+        left: calc(100% + 80px);
+    }
+}
+
+.linear-light {
+    .ant-progress-bg {
+        &::before {
+            position: absolute;
+            width: 90%;
+            height: 12px;
+            background: linear-gradient(to right, transparent, rgb(255 255 255 / 45%));
+            border-radius: 100px;
+            animation: left-to-right 4s 0s infinite;
+            content: ' ';
+        }
+    }
+}

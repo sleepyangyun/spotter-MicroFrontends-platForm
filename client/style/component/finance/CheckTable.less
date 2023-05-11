@@ -1,0 +1,57 @@
+.check-table-container {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: 240px;
+    // height: calc(100% - 45px + 24px);
+    // 刚好留下24像素的空白在底部
+    height: calc(100% - 45px);
+    padding-right: 24px;
+    padding-left: 24px;
+    overflow-y: auto;
+    // padding-bottom: 24px;
+    .check-table-title {
+        color: rgb(0 0 0 / 85%);
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .check-table-desc {
+        margin-top: 8px;
+        color: rgb(0 0 0 / 45%);
+    }
+}
+
+.check-table-wrapper {
+    .check-table-card {
+        &-title {
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: rgb(0 0 0 / 85%);
+            font-weight: bold;
+        }
+
+        &-content {
+            &-item {
+                margin-bottom: 12px;
+                user-select: none;
+            }
+        }
+    }
+}
+
+.children-gray-back-table {
+    .ant-table-row-level-1 {
+        .ant-table-cell {
+            background-color: #fafafa;
+        }
+    }
+}
+
+.status-steps-container {
+    flex-shrink: 0;
+    width: 240px;
+
+    .ant-card-head-title {
+        padding-top: 0;
+    }
+}

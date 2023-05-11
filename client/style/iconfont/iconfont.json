@@ -1,0 +1,380 @@
+{
+    "id": "3443126",
+    "name": "Spotter 基础图标库",
+    "font_family": "sptfont",
+    "css_prefix_text": "sptfont-",
+    "description": "Spotter 基础图标库",
+    "glyphs": [
+        {
+            "icon_id": "35240208",
+            "name": "错误-面",
+            "font_class": "drawerClose",
+            "unicode": "e634",
+            "unicode_decimal": 58932
+        },
+        {
+            "icon_id": "35146988",
+            "name": "badgeNew",
+            "font_class": "badgeNew",
+            "unicode": "e633",
+            "unicode_decimal": 58931
+        },
+        {
+            "icon_id": "35072479",
+            "name": "checked",
+            "font_class": "checked",
+            "unicode": "e632",
+            "unicode_decimal": 58930
+        },
+        {
+            "icon_id": "34890636",
+            "name": "discount",
+            "font_class": "discount",
+            "unicode": "e631",
+            "unicode_decimal": 58929
+        },
+        {
+            "icon_id": "34747314",
+            "name": "签章",
+            "font_class": "signature_stamp",
+            "unicode": "e630",
+            "unicode_decimal": 58928
+        },
+        {
+            "icon_id": "34562695",
+            "name": "绩效-填充",
+            "font_class": "Performance-fill",
+            "unicode": "e62e",
+            "unicode_decimal": 58926
+        },
+        {
+            "icon_id": "34562696",
+            "name": "绩效",
+            "font_class": "Performance",
+            "unicode": "e62f",
+            "unicode_decimal": 58927
+        },
+        {
+            "icon_id": "34347407",
+            "name": "左",
+            "font_class": "zuo",
+            "unicode": "e62a",
+            "unicode_decimal": 58922
+        },
+        {
+            "icon_id": "34347408",
+            "name": "减项",
+            "font_class": "jianxiang",
+            "unicode": "e62b",
+            "unicode_decimal": 58923
+        },
+        {
+            "icon_id": "34347409",
+            "name": "右",
+            "font_class": "you",
+            "unicode": "e62c",
+            "unicode_decimal": 58924
+        },
+        {
+            "icon_id": "34347410",
+            "name": "增项",
+            "font_class": "zengxiang",
+            "unicode": "e62d",
+            "unicode_decimal": 58925
+        },
+        {
+            "icon_id": "34126260",
+            "name": "实时数据-选中",
+            "font_class": "shishishuju-xuanzhong",
+            "unicode": "e629",
+            "unicode_decimal": 58921
+        },
+        {
+            "icon_id": "34126229",
+            "name": "实时数据",
+            "font_class": "shishishuju",
+            "unicode": "e628",
+            "unicode_decimal": 58920
+        },
+        {
+            "icon_id": "33779493",
+            "name": "快递",
+            "font_class": "kuaidi",
+            "unicode": "e626",
+            "unicode_decimal": 58918
+        },
+        {
+            "icon_id": "33779494",
+            "name": "集装箱",
+            "font_class": "jizhuangxiang",
+            "unicode": "e627",
+            "unicode_decimal": 58919
+        },
+        {
+            "icon_id": "33695893",
+            "name": "finance-fill",
+            "font_class": "banking-fill",
+            "unicode": "e624",
+            "unicode_decimal": 58916
+        },
+        {
+            "icon_id": "33695894",
+            "name": "finance-outlined",
+            "font_class": "banking",
+            "unicode": "e625",
+            "unicode_decimal": 58917
+        },
+        {
+            "icon_id": "33677892",
+            "name": "Excel",
+            "font_class": "Excel",
+            "unicode": "e61e",
+            "unicode_decimal": 58910
+        },
+        {
+            "icon_id": "33677893",
+            "name": "Word",
+            "font_class": "Word",
+            "unicode": "e61f",
+            "unicode_decimal": 58911
+        },
+        {
+            "icon_id": "33677894",
+            "name": "压缩文件",
+            "font_class": "yasuowenjian",
+            "unicode": "e620",
+            "unicode_decimal": 58912
+        },
+        {
+            "icon_id": "33677895",
+            "name": "PPT",
+            "font_class": "PPT",
+            "unicode": "e621",
+            "unicode_decimal": 58913
+        },
+        {
+            "icon_id": "33677896",
+            "name": "其它格式",
+            "font_class": "qitageshi",
+            "unicode": "e622",
+            "unicode_decimal": 58914
+        },
+        {
+            "icon_id": "33677897",
+            "name": "PDF",
+            "font_class": "PDF",
+            "unicode": "e623",
+            "unicode_decimal": 58915
+        },
+        {
+            "icon_id": "32349326",
+            "name": "系统-填充",
+            "font_class": "setting-fill",
+            "unicode": "e602",
+            "unicode_decimal": 58882
+        },
+        {
+            "icon_id": "32349327",
+            "name": "系统",
+            "font_class": "setting",
+            "unicode": "e61d",
+            "unicode_decimal": 58909
+        },
+        {
+            "icon_id": "31659690",
+            "name": "LOGO (1)",
+            "font_class": "menu-logo",
+            "unicode": "e604",
+            "unicode_decimal": 58884
+        },
+        {
+            "icon_id": "31659732",
+            "name": "报告",
+            "font_class": "report",
+            "unicode": "e605",
+            "unicode_decimal": 58885
+        },
+        {
+            "icon_id": "31659733",
+            "name": "财务-填充",
+            "font_class": "finance-fill",
+            "unicode": "e606",
+            "unicode_decimal": 58886
+        },
+        {
+            "icon_id": "31659734",
+            "name": "财务",
+            "font_class": "finance",
+            "unicode": "e607",
+            "unicode_decimal": 58887
+        },
+        {
+            "icon_id": "31659735",
+            "name": "成员-未选",
+            "font_class": "member",
+            "unicode": "e608",
+            "unicode_decimal": 58888
+        },
+        {
+            "icon_id": "31659736",
+            "name": "成员-填充",
+            "font_class": "member-fill",
+            "unicode": "e609",
+            "unicode_decimal": 58889
+        },
+        {
+            "icon_id": "31659737",
+            "name": "仓储",
+            "font_class": "warehouse",
+            "unicode": "e60a",
+            "unicode_decimal": 58890
+        },
+        {
+            "icon_id": "31659738",
+            "name": "仓储-填充",
+            "font_class": "warehouse-fill",
+            "unicode": "e60b",
+            "unicode_decimal": 58891
+        },
+        {
+            "icon_id": "31659739",
+            "name": "促销",
+            "font_class": "merchandising",
+            "unicode": "e60c",
+            "unicode_decimal": 58892
+        },
+        {
+            "icon_id": "31659740",
+            "name": "报告-填充",
+            "font_class": "report-fill",
+            "unicode": "e60d",
+            "unicode_decimal": 58893
+        },
+        {
+            "icon_id": "31659741",
+            "name": "日志-填充",
+            "font_class": "log-fill",
+            "unicode": "e60e",
+            "unicode_decimal": 58894
+        },
+        {
+            "icon_id": "31659742",
+            "name": "客服",
+            "font_class": "customer-service",
+            "unicode": "e60f",
+            "unicode_decimal": 58895
+        },
+        {
+            "icon_id": "31659743",
+            "name": "订单",
+            "font_class": "order",
+            "unicode": "e610",
+            "unicode_decimal": 58896
+        },
+        {
+            "icon_id": "31659744",
+            "name": "物流-填充",
+            "font_class": "shipment-fill",
+            "unicode": "e611",
+            "unicode_decimal": 58897
+        },
+        {
+            "icon_id": "31659745",
+            "name": "订单-填充",
+            "font_class": "order-fill",
+            "unicode": "e612",
+            "unicode_decimal": 58898
+        },
+        {
+            "icon_id": "31659746",
+            "name": "促销-填充",
+            "font_class": "merchandising-fill",
+            "unicode": "e613",
+            "unicode_decimal": 58899
+        },
+        {
+            "icon_id": "31659747",
+            "name": "物流",
+            "font_class": "shipment",
+            "unicode": "e614",
+            "unicode_decimal": 58900
+        },
+        {
+            "icon_id": "31659748",
+            "name": "产品-填充",
+            "font_class": "product-fill",
+            "unicode": "e615",
+            "unicode_decimal": 58901
+        },
+        {
+            "icon_id": "31659749",
+            "name": "产品-未选",
+            "font_class": "product",
+            "unicode": "e616",
+            "unicode_decimal": 58902
+        },
+        {
+            "icon_id": "31659750",
+            "name": "商务-填充",
+            "font_class": "business-fill",
+            "unicode": "e617",
+            "unicode_decimal": 58903
+        },
+        {
+            "icon_id": "31659751",
+            "name": "仪表盘-填充",
+            "font_class": "dashboard-fill",
+            "unicode": "e618",
+            "unicode_decimal": 58904
+        },
+        {
+            "icon_id": "31659752",
+            "name": "客服-填充",
+            "font_class": "customer-service-fill",
+            "unicode": "e619",
+            "unicode_decimal": 58905
+        },
+        {
+            "icon_id": "31659753",
+            "name": "日志",
+            "font_class": "log",
+            "unicode": "e61a",
+            "unicode_decimal": 58906
+        },
+        {
+            "icon_id": "31659754",
+            "name": "仪表盘",
+            "font_class": "dashboard",
+            "unicode": "e61b",
+            "unicode_decimal": 58907
+        },
+        {
+            "icon_id": "31659755",
+            "name": "商务-未选",
+            "font_class": "business",
+            "unicode": "e61c",
+            "unicode_decimal": 58908
+        },
+        {
+            "icon_id": "30795954",
+            "name": "主色Logo&Brand",
+            "font_class": "logo-brand",
+            "unicode": "e603",
+            "unicode_decimal": 58883
+        },
+        {
+            "icon_id": "30316990",
+            "name": "公司",
+            "font_class": "company",
+            "unicode": "e600",
+            "unicode_decimal": 58880
+        },
+        {
+            "icon_id": "30316991",
+            "name": "跳转",
+            "font_class": "link",
+            "unicode": "e601",
+            "unicode_decimal": 58881
+        }
+    ]
+}

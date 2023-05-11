@@ -1,0 +1,339 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 14px; // font base
+    //font-family: Inter, -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, noto sans,
+    //    Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif !important;
+    //
+    font-family: PingFangSC-Regular, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+#main-application {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+
+    > div {
+        height: 100%;
+    }
+}
+
+.spotter-login-form-tabs {
+    .ant-tabs-tab-btn {
+        max-height: 40px;
+        // 不要再其他的地方使用这个颜色，仅在登录表单的 tab 标题临时使用
+        color: #8c9298;
+    }
+}
+
+.react-resizable {
+    position: relative;
+    background-clip: padding-box;
+}
+
+.react-resizable-handle {
+    position: absolute;
+    right: -5px;
+    bottom: 0;
+    z-index: 1;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+}
+
+.module-title {
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.custom-table {
+    table,
+    td,
+    th {
+        padding: 8px 12px;
+        text-align: right;
+        border: 1px solid rgb(0 0 0 / 3%);
+    }
+
+    .align-left-center {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+}
+
+// 用于tab上标题旁边的数字
+.tab-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    padding: 0 8px;
+    font-size: 12px;
+    vertical-align: text-bottom;
+    background: #f0f5ff;
+    border-radius: 100px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; // 1
+    border: 0 solid #e5e7eb;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent; // remove the gray background on active links in IE 10.
+    outline: none;
+    cursor: pointer;
+    text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none; // remove the border on images inside links in IE 10-.
+}
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
+//
+// In particular, unlike most other browsers, IE11+Edge on Windows 10 on touch devices and IE Mobile 10-11
+// DON'T remove the click delay when `<meta name="viewport" content="width=device-width">` is present.
+// However, they DO support emoving the click delay via `touch-action: manipulation`.
+// See:
+// * https://getbootstrap.com/docs/4.0/content/reboot/#click-delay-optimization-for-touch
+// * http://caniuse.com/#feat=css-touch-action
+// * https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+
+a,
+area,
+button,
+[role='button'],
+input:not([type='range']),
+label,
+select,
+summary,
+textarea {
+    touch-action: manipulation;
+}
+
+//
+// Tables
+//
+
+table {
+    border-collapse: collapse; // Prevent double borders
+}
+
+//
+// Forms
+//
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    margin: 0; // remove the margin in Firefox and Safari
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+button,
+input {
+    overflow: visible; // Show the overflow in Edge
+}
+
+button,
+select {
+    text-transform: none; // remove the inheritance of text transform in Firefox
+}
+
+fieldset {
+    // Browsers set a default `min-width: min-content;` on fieldsets,
+    // unlike e.g. `<div>`s, which have `min-width: 0;` by default.
+    // So we reset that to ensure fieldsets behave more like a standard block element.
+    // See https://github.com/twbs/bootstrap/issues/12359
+    // and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
+    min-width: 0;
+    margin: 0;
+    // Reset the default outline behavior of fieldsets so they don't affect page layout.
+    padding: 0;
+    border: 0;
+}
+
+// 1. Correct the text wrapping in Edge and IE.
+// 2. Correct the color inheritance from `fieldset` elements in IE.
+legend {
+    display: block;
+    width: 100%;
+    max-width: 100%; // 1
+    margin-bottom: 0.5em;
+    padding: 0;
+    color: inherit; // 2
+    font-size: 1.5em;
+    line-height: inherit;
+    white-space: normal; // 1
+}
+
+progress {
+    vertical-align: baseline; // Add the correct vertical alignment in Chrome, Firefox, and Opera.
+}
+
+// Correct the cursor style of incement and decement buttons in Chrome.
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+    height: auto;
+}
+
+[type='search'] {
+    // This overrides the extra rounded corners on search inputs in iOS so that our
+    // `.form-control` class can properly style them. Note that this cannot simply
+    // be added to `.form-control` as it's not specific enough. For details, see
+    // https://github.com/twbs/bootstrap/issues/11586.
+    outline-offset: -2px; // 2. Correct the outline style in Safari.
+    appearance: none;
+}
+
+//
+// remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+//
+
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
+    appearance: none;
+}
+
+//
+// 1. Correct the inability to style clickable types in iOS and Safari.
+// 2. Change font properties to `inherit` in Safari.
+//
+
+::-webkit-file-upload-button {
+    font: inherit; // 2
+    appearance: button; // 1
+}
+
+//
+// Correct element displays
+//
+
+output {
+    display: inline-block;
+}
+
+summary {
+    display: list-item; // Add the correct display in all browsers
+}
+
+template {
+    display: none; // Add the correct display in IE
+}
+
+// remove inner border and padding from Firefox, but don't restore the outline like Normalize.
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+    box-sizing: border-box; // 1. Add the correct box sizing in IE 10-
+    padding: 0; // 2. remove the padding in IE 10-
+}
+
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='month'] {
+    // remove the default appearance of temporal inputs to avoid a Mobile Safari
+    // bug where setting a custom line-height prevents text from being vertically
+    // centered within the input.
+    // See https://bugs.webkit.org/show_bug.cgi?id=139848
+    // and https://github.com/twbs/bootstrap/issues/11266
+    appearance: listbox;
+}
+
+textarea {
+    overflow: auto; // remove the default vertical scrollbar in IE.
+    // Textareas should really only resize vertically so they don't break their (horizontal) containers.
+    resize: vertical;
+}
+
+iframe,
+img,
+svg {
+    display: block;
+}
+
+// 高亮警告
+.table-row-warn {
+    background: #fffbe6 !important;
+
+    .ant-table-cell-row-hover {
+        background: #fffbe6 !important;
+    }
+}
+
+// 模拟Card的Title样式
+.typo-title {
+    flex: auto;
+    color: rgb(0 0 0 / 85%);
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5715;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+// 标红
+.table-row-error {
+    background: #fbe9ea !important;
+
+    .ant-table-cell-row-hover {
+        background: #fbe9ea !important;
+    }
+}
+
+// 紧凑模式的select箭头
+.compacted-select {
+    .ant-select-arrow,
+    .ant-select-clear {
+        top: 16px;
+    }
+}
+
+.keyword-search-select-tag {
+    .ant-select-selector {
+        max-height: 132px !important;
+        overflow-y: auto;
+    }
+}
+
+// 校验图标的位置
+.table-form-item-feedback-icon-override {
+    .ant-form-item-feedback-icon {
+        line-height: 0;
+    }
+}

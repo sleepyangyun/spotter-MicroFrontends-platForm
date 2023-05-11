@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="<$= locals.appSubUrl $>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="favicon.ico" />
+
+    <$ if (locals.env === 'production') { $>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RY8G5KNR0N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-RY8G5KNR0N');
+    </script>
+    <$ } $>
+
+    <$ if (locals.monitor.enable) { $>
+    <script src="<$= locals.monitor.sdkCdnUrl $>"></script>
+    <script>
+        const whiteList = ['www.google-analytics.com', 'ipv4.icanhazip.com']
+        const aegis = new Aegis({
+            id: <$- JSON.stringify(locals.monitor.id) $> , // 上报 id
+            uin: <$- JSON.stringify(locals.monitor.uin) $>,
+            reportApiSpeed: <$= locals.monitor.reportApiSpeed $>, // 接口测速
+            reportAssetSpeed: <$= locals.monitor.reportAssetSpeed $>, // 静态资源测速
+            spa: <$= locals.monitor.spa $>, // spa 应用页面跳转的时候开启 pv 计算
+            beforeRequest: function(data){
+                // 过滤不需要上报的域名
+                if (data.logType === 'log' && whiteList.some((url)=> data.logs.msg.indexOf(url)>-1)){
+                    return false
+                }
+                if (data.logType === 'speed' && whiteList.some((url)=> data.logs.url.indexOf(url)>-1)){
+                    return false
+                }
+                return  data
+            }
+        })
+    </script>
+    <$ } $>
+    <title><$= locals.appName $></title>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="main-application"></div>
+<script>
+    window.__SPOTTER_APP_BOOT_DATA__ =   <$- JSON.stringify(locals.applicationBootData) $>
+</script>
+</body>
+</html>
