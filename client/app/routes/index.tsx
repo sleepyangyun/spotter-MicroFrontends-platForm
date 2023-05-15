@@ -8,31 +8,12 @@ import { Home } from '@app/routes/Home';
 import { GetStarted } from '@app/routes/GetStarted';
 import { Login, PasswordForgot, AccountActivation } from '@app/routes/Auth';
 import { PasswordModificationCompletion } from '@app/routes/Auth/PasswordForgot/PasswordModificationCompletion';
-// import { TicketRoutes } from '@app/routes/Ticket';
-// import { OrderRoutes } from '@app/routes/Order';
-// import { CompanyRoutes } from '@app/routes/Seller';
-// import { ProductRoutes } from '@app/routes/Product';
-// import { AccountRoutes } from '@app/routes/AccountManagement';
-// import { CatalogRoutes } from '@app/routes/Catalog';
-// import { MarketingRoutes } from '@app/routes/Marketing';
-// import { OperationLogRoutes } from '@app/routes/OperationLog';
-// import { WarehouseRoutes } from '@app/routes/WarehouseV2';
-// import { LogisticsRoutes } from '@app/routes/Logistics';
-// import { FinanceRoutes } from '@app/routes/Finance';
-// import { SupplyChainFinanceRoutes } from '@app/routes/SupplyChainFinance';
-// import { SettingsRoutes } from '@app/routes/Settings';
-// import { useEmbeddedRoutes } from '@app/infra/gui/EmbededRegister';
+import { useEmbeddedRoutes } from '@app/infra/gui/EmbededRegister';
 import { observer } from 'mobx-react-lite';
-// import { BusinessesRoutes } from '@app/routes/Business';
-// import { ReportRoutes } from '@app/routes/Report';
-// import { MessageRoutes } from '@app/routes/Message';
-// import { ManagementRoutes } from '@app/routes/Management';
-// import { DashboardRoutes } from './Dashboard';
 import { SpotterRouterGuard } from '../infra/routerGuard';
-// import { PerformanceRoutes } from './Performance';
 
 const AppRoutes = observer(() => {
-    // const EmbeddedRoutes = useEmbeddedRoutes();
+    const EmbeddedRoutes = useEmbeddedRoutes();
     return useRoutes([
         {
             element: <SpotterRouterGuard />,
@@ -48,26 +29,7 @@ const AppRoutes = observer(() => {
                             path: '/get-started',
                             element: <GetStarted />,
                         },
-                        // ...DashboardRoutes,
-                        // ...OrderRoutes,
-                        // ...TicketRoutes,
-                        // ...CompanyRoutes,
-                        // ...ProductRoutes,
-                        // ...AccountRoutes,
-                        // ...CatalogRoutes,
-                        // ...MarketingRoutes,
-                        // ...OperationLogRoutes,
-                        // ...WarehouseRoutes,
-                        // ...LogisticsRoutes,
-                        // ...FinanceRoutes,
-                        // ...SupplyChainFinanceRoutes,
-                        // ...SettingsRoutes,
-                        // ...ReportRoutes,
-                        // ...EmbeddedRoutes,
-                        // ...BusinessesRoutes,
-                        // ...MessageRoutes,
-                        // ...PerformanceRoutes,
-                        // ...ManagementRoutes,
+                        ...EmbeddedRoutes, // bi报告
                         {
                             path: '/user-center',
                             element: <UserCenter />,

@@ -35,7 +35,7 @@ module.exports = {
         ecmaVersion: 2020,
         sourceType: 'module',
     },
-    ignorePatterns: ['vite.config.ts'],
+    ignorePatterns: ['vite.config.ts', '*'],
     settings: {
         'import/resolver': {
             node: {
