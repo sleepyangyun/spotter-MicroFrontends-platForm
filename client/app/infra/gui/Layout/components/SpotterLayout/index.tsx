@@ -21,12 +21,17 @@ export interface IMenusData {
 
 export const SpotterLayout: FC<SpotterLayoutProps> = observer(
     ({ children, menus, menuLoading: _ }) => {
-        const sourceMenus = [...menus];
+        const sourceMenus = menus.map((item) => {
+            item.items = item.children;
+            return item;
+        });
+
         const menusData: IMenusData = useMemo(() => {
             const headerMenus = sourceMenus.filter((menuItem) => menuItem.position === 'header');
             pull(sourceMenus, ...headerMenus);
             return { defaultMenus: sourceMenus, headerMenus };
         }, [sourceMenus]);
+
         const location = useLocation();
         const pathSnippets = useMemo(
             () => location.pathname.split('/').filter((p) => p),

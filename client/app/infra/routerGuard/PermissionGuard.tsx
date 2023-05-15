@@ -66,6 +66,7 @@ export const PermissionGuard: FC<{ children: ReactElement }> = observer(({ child
     const navigate = useNavigate();
     const validate = useValidate();
     const { menus } = useStore('global');
+    const currentPathName = window.location.pathname;
 
     useMount(async () => {
         try {
@@ -81,7 +82,8 @@ export const PermissionGuard: FC<{ children: ReactElement }> = observer(({ child
             }
         } catch (error: any) {
             if (authError.has(error.data?.code)) {
-                navigate('/login');
+                window.localStorage.setItem('PATHNAME_BEFORE_LOGIN', currentPathName);
+                navigate(`/login`);
             }
             console.log(error);
         }

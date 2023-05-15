@@ -1,5 +1,5 @@
 import { useStore } from '@app/store';
-import { NavigationRenderType } from '@app/routes/AccountManagement/Menus/MenuTab/consts';
+import { NavigationRenderType } from './const';
 import { SpotterRouteObject } from '@app/types/type';
 import { useMemo } from 'react';
 import { EmbeddedRenderer } from './renderer';

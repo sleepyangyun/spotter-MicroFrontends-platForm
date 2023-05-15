@@ -10,7 +10,7 @@ import {
     useState,
 } from 'react';
 import { checkRules, DebounceTaskQueue, getPermitsHash, RuleType } from '@app/utils/common';
-import { localCache, SPOTTER_ROLES_CODE } from '@spotter/utils';
+import { localCache } from '@spotter/utils';
 import { message } from 'antd';
 import { matchRoutes, useLocation } from 'react-router-dom';
 import { SpotterRouteObject } from '@app/types/type';
@@ -180,18 +180,18 @@ export function useValidate() {
 }
 
 // 文件下载链接签名
-export const useFileDownloadSigner = (params: { bucketName: string }) => {
-    const { bucketName } = params;
-    const { getFileDownloadSigner } = useStore('file');
-    const signUrl = async (fileUrl: string) => {
-        const { data } = await getFileDownloadSigner({
-            bucketName,
-            fileKey: fileUrl,
-        });
-        return data;
-    };
-    return { signUrl };
-};
+// export const useFileDownloadSigner = (params: { bucketName: string }) => {
+//     const { bucketName } = params;
+//     const { getFileDownloadSigner } = useStore('file');
+//     const signUrl = async (fileUrl: string) => {
+//         const { data } = await getFileDownloadSigner({
+//             bucketName,
+//             fileKey: fileUrl,
+//         });
+//         return data;
+//     };
+//     return { signUrl };
+// };
 
 /**
  *
@@ -230,12 +230,12 @@ export const useDebounceEffect = (fn: (...args: any[]) => void, deps: any[], wai
     }, deps);
 };
 
-export const useRolePermission = (targetRoleCodeList: SPOTTER_ROLES_CODE[]) => {
-    const { roles } = useStore('global');
-    return roles?.data
-        ?.map((v) => v.code)
-        .some((userRoleCode) => targetRoleCodeList.includes(userRoleCode as any));
-};
+// export const useRolePermission = (targetRoleCodeList: SPOTTER_ROLES_CODE[]) => {
+//     const { roles } = useStore('global');
+//     return roles?.data
+//         ?.map((v) => v.code)
+//         .some((userRoleCode) => targetRoleCodeList.includes(userRoleCode as any));
+// };
 
 export const useOwnerPermission = (userId?: any) => {
     const { user } = useStore('global');

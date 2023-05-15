@@ -3,11 +3,9 @@ import { ConfigProvider, Modal } from 'antd';
 import antdEn from 'antd/es/locale/en_US';
 import antdZh from 'antd/es/locale/zh_CN';
 import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from '@app/routes';
 import { SuspenseLoading } from '@app/infra/gui/SuspenseLoading';
 import { ErrorBoundary } from '@app/infra/gui/ErrorBoundary';
 import { useTranslation } from 'react-i18next';
-import ModalContext from '@app/components/Modal/context';
 
 import dayjs from 'dayjs';
 import dayjsZh from 'dayjs/locale/zh-cn';
@@ -18,14 +16,17 @@ import duration from 'dayjs/plugin/duration';
 import isBetween from 'dayjs/plugin/isBetween';
 import localeData from 'dayjs/plugin/localeData';
 import weekday from 'dayjs/plugin/weekday';
+import ModalContext from '@app/components/Modal/context';
+import AppRoutes from '@app/routes';
 
 import { DEFAULT_TIMEZONE } from '@spotter/utils';
 import { SpotterAppDecorator } from './infra/decorator';
-import { masterStore, MasterStoreProvider } from './store';
 import Downgrade from './infra/gui/Downgrade';
 import 'antd/dist/reset.css';
 import '../style/index.less';
+
 import theme from './utils/theme';
+import { masterStore, MasterStoreProvider } from './store';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);

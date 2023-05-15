@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { NavigationRenderType } from '@app/routes/AccountManagement/Menus/MenuTab/consts';
+import { NavigationRenderType } from '../const';
 import { BiEmbedded } from '@app/infra/gui/EmbededRegister/renderer/BiEmbedded';
 
 export const EmbeddedRenderer: FC<{

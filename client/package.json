@@ -32,7 +32,7 @@
         "@spotter/api-sdk": "1.0.0-alpha.8",
         "@spotter/ui": "1.0.0-alpha.3",
         "antd": "5.4.0",
-        "@spotter/gmesh-api-sdk": "1.6.20-Yeong.0",
+        "@spotter/gmesh-api-sdk": "1.6.22",
         "@spotter/editor": "5.3.1",
         "@spotter/editor-for-react": "1.0.7",
         "@spotter/i18n-sdk": "1.4.52",
@@ -70,7 +70,7 @@
         "usehooks-ts": "^2.9.1",
         "xlsx": "https://cdn.sheetjs.com/xlsx-0.18.12/xlsx-0.18.12.tgz",
         "xlsx-populate": "1.21.0",
-        "qiankun": ""
+        "qiankun": "2.10.6"
     },
     "devDependencies": {
         "@babel/core": "7.17.9",

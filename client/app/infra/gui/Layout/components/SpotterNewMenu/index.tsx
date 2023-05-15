@@ -55,6 +55,7 @@ export interface SpotterMenuNavigationDomain {
     activeIcon?: string;
     // 领域导航下的子功能模块导航
     children: SpotterMenuNavigationItem[];
+    items?: SpotterMenuNavigationItem[];
 }
 
 export interface SpotterMenuProps {

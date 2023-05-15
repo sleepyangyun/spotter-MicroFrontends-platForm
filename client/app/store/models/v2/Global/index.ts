@@ -16,6 +16,9 @@ const GlobalStore = Model({
         company: WithPrimaryUpdateFnModel({} as CompanyType).model,
         userUnderline: WithPrimaryUpdateFnModel<typeof userSdk.getUnderlingByUserId>([]).model,
         roles: WithPrimaryUpdateFnModel([] as RolesType).model,
+        leader: WithPrimaryUpdateFnModel(
+            <ApiReturnType<typeof userSdk.getLeaderByCompanyIdAndOrgId>>{},
+        ).model,
     },
     overridesInitWatcher: {
         validateCaptcha: false,
@@ -81,6 +84,15 @@ const GlobalStore = Model({
         return response;
     });
 
+    // 根据公司id和部门code获取部门leader
+    const getLeaderByCompanyIdAndOrgId = autoContextFlow(
+        'leader',
+        async (...args: Parameters<typeof userSdk.getLeaderByCompanyIdAndOrgId>) => {
+            const { data: response } = await userSdk.getLeaderByCompanyIdAndOrgId(...args);
+            return response;
+        },
+    );
+
     return {
         updateValidate,
         validateCaptcha,
@@ -89,6 +101,7 @@ const GlobalStore = Model({
         getPermits,
         getValidateHash,
         getRoles,
+        getLeaderByCompanyIdAndOrgId,
     };
 });
 

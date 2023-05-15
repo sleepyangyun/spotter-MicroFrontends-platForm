@@ -9,7 +9,7 @@ import { themeStyle } from '../../../client/theme/default';
 // https://vitejs.dev/config/
 export default defineConfig(() => {
     const projectRoot = resolve(process.cwd());
-    const APP_DEV_PORT = process.env.APP_DEV_PORT ? +process.env.APP_DEV_PORT : 3000;
+    const APP_DEV_PORT = process.env.APP_DEV_PORT ? +process.env.APP_DEV_PORT : 3010;
 
     return {
         root: resolve(projectRoot, './client'),
